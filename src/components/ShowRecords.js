@@ -42,9 +42,9 @@ function Row ({ record, index }) {
       </Table.Cell>
       <Table.Cell>{mainTitle}</Table.Cell>
       <Table.Cell>
-        {/* <audio controls>
+        <audio controls>
           <source src={high_mp3} type="audio/mpeg" />
-        </audio> */}
+        </audio>
       </Table.Cell>
       <Table.Cell>
         {can_embed ? (<Button color="yellow">Embed</Button>) : null}

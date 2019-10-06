@@ -28,11 +28,11 @@ class PodCost extends Component {
   }
 
   render () {
-    
+
     const { error: { status: errorStatus, text }, recordsToShow, showItemsCount, search } = this.state;
     
     return (
-      <Container>
+      <Container style={{ margin: 10 }}>
         <Header as="h1">PodCost</Header>
         <Divider></Divider>
         <Container>
@@ -60,9 +60,26 @@ class PodCost extends Component {
             </Grid.Row>
           </Grid>
           {errorStatus ? <Header as="h3">{text}</Header>:<ShowRecords records={recordsToShow} />}
+          <Grid>
+            <Grid.Row>
+              <Grid.Column width={3} textAlign="left">
+                {this.makeLabelForEntries()}
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
         </Container>
       </Container>
     )
+  }
+
+  makeLabelForEntries = () => {
+    const { recordsToShow = [], records = [],  } = this.state;
+
+    const label = recordsToShow.length ? ` 1 to ${recordsToShow.length}` : ` 0 `
+
+    return (
+     <span>Showing {label} of {records.length} entries</span>
+    );
   }
 
   _filterRecords = () => {
